@@ -48,6 +48,13 @@ jobs:
             mingw-w64-x86_64-gobject-introspection
             mingw-w64-x86_64-appstream
 
+      - name: Downgrade mingw-w64-x86_64-gst-libav
+        shell: msys2 {0}
+        run: |
+          wget https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-gst-libav-1.24.4-1-any.pkg.tar.zst
+          pacman --noconfirm -U mingw-w64-x86_64-gst-libav-1.24.4-1-any.pkg.tar.zst
+          rm mingw-w64-x86_64-gst-libav-1.24.4-1-any.pkg.tar.zst
+
       - name: Install additional dependencies
         shell: msys2 {0}
         run: |
